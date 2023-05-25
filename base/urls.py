@@ -6,5 +6,5 @@ from . import views
 urlpatterns = [
     path('', views.homepage, name= "home"),
     path ('project/<str:pk>/', views.projectpage, name = "project"),
-
+    path('add-project/', views.addproject, name="add-project")
 ]

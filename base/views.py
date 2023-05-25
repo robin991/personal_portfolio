@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import project, skill
+from .forms import ProjectForm
 # Create your views here.
 
 
@@ -20,3 +21,13 @@ def projectpage(request, pk):
     }
     return render (request, 'base/project.html', context)
 
+
+def addproject(request):
+    form = ProjectForm(request.POST, request.FILES)
+    if form.is_valid():
+        form.save()
+        return redirect('home')
+
+
+    context = {'form' : form}
+    return render(request, 'base/project_form.html', context)
