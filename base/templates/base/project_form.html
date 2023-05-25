@@ -1,0 +1,14 @@
+{% extends 'base/main.html' %}
+{% load static %}
+{% block content%}
+
+<div class = "container">
+    <h3> Project Form </h3>
+
+    <form method='POST' enctype='multiparth/form-data'>
+        {% csrf_token %}
+
+        {% for fields in form %}
+
+        <div class="mb-3">
+            <label for ="exampleInputPassword1" class "form-label">{{field}}

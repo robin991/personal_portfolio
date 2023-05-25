@@ -1,0 +1,173 @@
+body{
+    background-color:#808080 ;
+}
+
+.skills-section{
+    background-color: #fff;
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.section-2{
+    background-color:#808080
+}
+.navigation-bar{
+    background-color: #1d3344;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-link{
+    color :#fff;
+    margin: 15px;
+}
+
+.hero{
+    background-color: #1F2428 ;
+    min-height: 80vh;
+    color: #fff
+}
+
+#profile-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.hero-content{
+    width : 800px;
+    margin : 0 auto;
+    padding: 3em;
+}
+
+.hero-content-intro{
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    gap : 2em;
+    margin-bottom: 3em;
+}
+
+/*.hero-content-subsection{
+    
+}
+*/
+.intro--name{
+    font-size: 60px;
+    letter-spacing: .1em;
+    font-weight: 700;
+    line-height : .9em;
+}
+
+.subheading{
+    font-size : 40px;
+    text-align: center;
+
+}
+
+
+.subheading-description{
+    font-size : 25px;
+    text-align: center;
+
+}
+
+.project-column{
+    width: 300px;
+}
+
+.project-row{
+    display: flex;
+    height: 150px;
+    object-fit: cover;
+}
+.project-thumbnail{
+    width: 100%
+}
+.project-rows{
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.project-body{
+    background-color: #fff;
+    padding: 1em;
+}
+
+.skills-container{
+    width: 600px;
+    margin: 0 auto;
+    padding: 1em
+}
+
+.skills-wrapper{
+    margin-top: 2em;
+    margin-bottom: 2em;
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.skills-tag{
+    background-color: #c4e7f2;
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.other-skills-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+}
+
+.project--image{
+
+  max-width: 0px;
+
+
+
+}
+
+@media(max-width:900px){
+    .hero-content-intro{
+        flex-direction: column;
+    }
+
+    .project-rows{
+        grid-template-columns: 1fr
+    }
+}
+
+@media (max-width:800px){
+    .hero-content{
+        width: 100%;
+    }
+}
+
+
+
+
+@media (max-width:600px){
+    
+    .skills-container{
+        width: 100%;
+    }
+}
+
+@media (max-width:400px){
+
+
+    .skill--wrapper{
+        flex-flow: column;
+        
+    }
+}
