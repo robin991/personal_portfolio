@@ -23,10 +23,28 @@ def projectpage(request, pk):
 
 
 def addproject(request):
-    form = ProjectForm(request.POST, request.FILES)
-    if form.is_valid():
-        form.save()
-        return redirect('home')
+    
+    form = ProjectForm()
+     
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+
+
+    context = {'form' : form}
+    return render(request, 'base/project_form.html', context)
+
+def editproject(request, pk ):
+    projects = project.objects.get(id=pk)
+    form = ProjectForm(instance = projects)
+     
+    if request.method == 'POST':
+        form = ProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
 
 
     context = {'form' : form}

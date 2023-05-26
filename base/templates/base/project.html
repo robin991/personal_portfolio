@@ -5,10 +5,11 @@
 {% block  content %}
 
 <div class = "container">
+    
     <img class ="project--image" src = "{{projects.thumbnail.url}}">
-
     <h1>{{projects.title}}</h1>
-
+    <a class = "btn btn-warning" href = "{% url 'edit-project' projects.id %}">Edit</a>
+    
     <hr>
     <p>{{projects.body}}</p>
 
