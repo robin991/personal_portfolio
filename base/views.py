@@ -41,7 +41,7 @@ def editproject(request, pk ):
     form = ProjectForm(instance = projects)
      
     if request.method == 'POST':
-        form = ProjectForm(request.POST, request.FILES)
+        form = ProjectForm(request.POST, request.FILES, instance = projects)
         if form.is_valid():
             form.save()
             return redirect('home')

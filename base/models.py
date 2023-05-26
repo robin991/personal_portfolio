@@ -1,12 +1,13 @@
 from django.db import models
 import uuid
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
 class project(models.Model):
     title = models.CharField(max_length=200)
     thumbnail = models.ImageField(null = True, blank  = True)
-    body = models.TextField()
+    body = RichTextUploadingField()
     slug = models.SlugField(null = True, blank = True)
     created = models.DateTimeField(auto_now_add= True)
     id = models.UUIDField(default = uuid.uuid4,

@@ -8,4 +8,5 @@ urlpatterns = [
     path ('project/<str:pk>/', views.projectpage, name = "project"),
     path('add-project/', views.addproject, name="add-project"),
     path('edit-project/<str:pk>/', views.editproject, name="edit-project")
+    
 ]

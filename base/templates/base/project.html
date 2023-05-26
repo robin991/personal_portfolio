@@ -11,7 +11,7 @@
     <a class = "btn btn-warning" href = "{% url 'edit-project' projects.id %}">Edit</a>
     
     <hr>
-    <p>{{projects.body}}</p>
+    <p>{{projects.body|safe}}</p>
 
 </div>   
 
