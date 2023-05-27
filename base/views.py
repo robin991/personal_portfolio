@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import project, skill
+from .models import project, skill, Message
 from .forms import ProjectForm
 # Create your views here.
 
@@ -46,6 +46,13 @@ def editproject(request, pk ):
             form.save()
             return redirect('home')
 
-
     context = {'form' : form}
     return render(request, 'base/project_form.html', context)
+
+def inboxPage(request):
+    inbox = Message.objects.all().order_by('is_read')
+
+    context = { 'inbox' : inbox
+
+    }
+    return render (request, 'base/inbox.html', context)
