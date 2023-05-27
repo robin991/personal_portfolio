@@ -8,7 +8,7 @@
     <h3> My Messages 
         
     </h3>
-
+    <h5> Unread Messages :{{unread_emails}} </h5>
         <table class = "table">
             <thead>
                 <tr>
@@ -26,7 +26,7 @@
                 <tr style ="font-weight : 900;">
                     {% endif %}
                     <td>{{message.name}}</td>
-                    <td>{{message.subject}}</td>
+                    <td><a href = {% url 'message' message.id %}>{{message.subject}}</a></td>
                     <td>{{message.created}}</td>
                 </tr>
                 {% endfor %}

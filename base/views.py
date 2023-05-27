@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import project, skill, Message
-from .forms import ProjectForm
+from .forms import ProjectForm,MessageForm
+from django.contrib import messages
 # Create your views here.
 
 
@@ -8,9 +9,21 @@ def homepage(request):
     proj = project.objects.all()
     deatiledskills = skill.objects.exclude(body='')
     skills = skill.objects.filter(body = '')
+
+    form = MessageForm()
+
+    if request.method =="POST":
+        form = MessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'You message was successfully sent.')
+
+
+
     context = {'proj':proj,
                 'detailedskills' : deatiledskills,
-                'skills' : skills
+                'skills' : skills ,
+                'form' : form
                }
     return render(request,'base/home.html',context )
 
@@ -51,8 +64,19 @@ def editproject(request, pk ):
 
 def inboxPage(request):
     inbox = Message.objects.all().order_by('is_read')
-
-    context = { 'inbox' : inbox
+    unread_emails = Message.objects.filter(is_read = False).count()
+    
+    context = { 'inbox' : inbox,
+               'unread_emails' : unread_emails
 
     }
     return render (request, 'base/inbox.html', context)
+
+def messagePage(request, pk):
+    message = Message.objects.get(id = pk)
+    message.is_read = True # this will set the message read to true once the link is selected.
+    message.save() # saving the above true condition
+    context = { 'message' : message
+
+    }
+    return render (request, 'base/message.html', context)

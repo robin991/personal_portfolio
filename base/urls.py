@@ -9,5 +9,6 @@ urlpatterns = [
     path('add-project/', views.addproject, name="add-project"),
     path('edit-project/<str:pk>/', views.editproject, name="edit-project"),
     path('inbox/', views.inboxPage, name="inbox"),
+    path('message/<str:pk>/', views.messagePage, name="message"),
     
 ]
